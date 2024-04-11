@@ -113,8 +113,21 @@ class BinarySearchTree{
    with a specific value
    */
    public boolean find(Node root, int key){
-	  //implement me
-      return false;           
+      //base case
+      //if root is null, return false
+      if (root == null)
+          return false;
+   
+       //if=f the key == root, return true
+       if (root.value == key)
+           return true;
+   
+       //if key is less than root value, search in the left subtree
+       if (key < root.value)
+           return find(root.left, key);
+   
+       //if key is greater than root value, search in the right subtree
+       return find(root.right, key);
    }
    
    
@@ -200,6 +213,8 @@ public class TreeDemo{
       System.out.print("post-order :   \n");
       t1.postOrderTraversal(t1.root);
       System.out.println();
+      
+      System.out.println(t1.find(t1.root, 24));
            
       
    }  
