@@ -160,9 +160,21 @@ class BinarySearchTree{
    with a largest key
    */
    public int getMax(Node root){
-	  //implement me
-     return 0;
-   }
+	   
+      //base case
+      //if the root is null, return (-1)
+      if (root == null)
+         return -1;
+         
+       //else, if root is not null
+       //traverse the right subtree until you reach leaf node
+       while (root.right != null) {
+         root = root.right;
+       }
+   
+       //return the value of the very right node, the maximum value in tree
+       return root.value;
+}
    
    
    
@@ -229,6 +241,8 @@ public class TreeDemo{
       System.out.println(t1.find(t1.root, 24));
       
       System.out.println(t1.getMin(t1.root));
+      
+      System.out.println(t1.getMax(t1.root));
            
       
    }  
